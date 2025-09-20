@@ -1,9 +1,8 @@
 
-package qlnv_ma;
 
+package model;
 import service.ChamCong;
 import model.nhan_vien;
-
 /**
  *
  * @author x
