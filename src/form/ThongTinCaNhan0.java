@@ -38,8 +38,14 @@ public class ThongTinCaNhan0 extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         Body = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -165,13 +171,40 @@ public class ThongTinCaNhan0 extends javax.swing.JFrame {
         Body.setPreferredSize(new java.awt.Dimension(1400, 350));
         Body.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("TRA CỨU THÔNG TIN VÀ BẢNG LƯƠNG");
+        Body.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Nhân viên nhập thông tin vào ô dưới đây :");
+        Body.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("CÔNG TY MAY MINH ANH ");
+        Body.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, -1, -1));
+        Body.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 200, 25));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Mã nhân viên ");
+        Body.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, -1, -1));
+
+        jButton2.setBackground(new java.awt.Color(102, 255, 204));
+        jButton2.setText("Tra cứu");
+        Body.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 110, -1));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("CÔNG TY MAY MINH ANH ");
+        Body.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, -1, -1));
+
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/nen.jpg"))); // NOI18N
         jLabel12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel12.setVerifyInputWhenFocusTarget(false);
         Body.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 460));
-
-        jButton6.setText("jButton6");
-        Body.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, -1, -1));
 
         jPanel9.setBackground(new java.awt.Color(102, 204, 255));
         jPanel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -259,7 +292,7 @@ public class ThongTinCaNhan0 extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Tinh_Luong, javax.swing.GroupLayout.PREFERRED_SIZE, 849, Short.MAX_VALUE)
+                .addComponent(Tinh_Luong, javax.swing.GroupLayout.DEFAULT_SIZE, 849, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -301,18 +334,24 @@ public class ThongTinCaNhan0 extends javax.swing.JFrame {
     private javax.swing.JPanel Tinh_Luong;
     private javax.swing.JPanel header3;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
