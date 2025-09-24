@@ -248,15 +248,15 @@ public class signup extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_txtPassActionPerformed
 
     private void txtPass2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPass2ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtPass2ActionPerformed
 
     //Hàm kiểm tra email
-    public static boolean isValidEmail(String email) {
+    public static boolean ktEmail(String email) {
         String regex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
         return email.matches(regex);
     }
@@ -277,7 +277,7 @@ public class signup extends javax.swing.JFrame {
             }
 
             // Kiểm tra email
-            if (!isValidEmail(email)) {
+            if (!ktEmail(email)) {
                 JOptionPane.showMessageDialog(this, "Email không hợp lệ!");
                 return;
             }
@@ -296,7 +296,7 @@ public class signup extends javax.swing.JFrame {
                 return;
             }
 
-            TaiKhoan taikhoan = new TaiKhoan(user, pass, name, email, pass2);
+            TaiKhoan taikhoan = new TaiKhoan(user, pass, name, email);
             TaiKhoan_Dao dao = new TaiKhoan_Dao();
 
             if (dao.dangKy(taikhoan)) {

@@ -10,18 +10,17 @@ public class TaiKhoan {
     private String pass;
     private String hoTen;
     private String email;
-    private String pass2;
 
 //Contructor
-    public TaiKhoan(String user, String pass, String hoTen, String email, String pass2) {
+    public TaiKhoan(String user, String pass, String hoTen, String email) {
         this.user = user;
         this.pass = pass;
         this.hoTen = hoTen;
         this.email = email;
-        this.pass2 = pass2;
+        
     }
 
-//    Set+Get
+    //    Set+Get
     public void setUser(String user) {
         this.user = user;
     }
@@ -38,10 +37,6 @@ public class TaiKhoan {
         this.email = email;
     }
 
-    public void setPass2(String pass2) {
-        this.pass2 = pass2;
-    }
-
     public String getUser() {
         return user;
     }
@@ -56,10 +51,6 @@ public class TaiKhoan {
 
     public String getEmail() {
         return email;
-    }
-
-    public String getPass2() {
-        return pass2;
     }
 
 }

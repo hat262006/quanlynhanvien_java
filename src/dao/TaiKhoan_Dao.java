@@ -19,24 +19,25 @@ public class TaiKhoan_Dao {
 
     private Connection conn;
 
-    // ==============kiểm tra + đăng nhập==============
-    public int checkLogin(String user, String pass) {
-        String sql = "SELECT capdo FROM taikhoan WHERE username=? AND password=?";
-        try (Connection conn = DBConnection.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+    // kiểm tra + đăng nhập
+    public boolean checkLogin(String user, String pass) {
+        String sql = "SELECT * FROM taikhoan WHERE username=? AND password=?";
+        try (Connection conn = DBConnection.getConnection(); 
+             PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, user);
             ps.setString(2, pass);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return rs.getInt("capdo"); // lấy cấp độ (0 hoặc 1)
+                return true; // Nếu đăng nhập thành công
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return -1; // đăng nhập thất bại
+        return false; // đăng nhập thất bại
     }
 
-    // ==============đăng ký==============
+    // đăng ký
     public boolean dangKy(TaiKhoan tk) {
         String checkUser = "SELECT * FROM taikhoan WHERE username = ? OR email = ?";
         String insert = "INSERT INTO taikhoan(username,password,hoten,email) VALUES(?,?,?,?)";
@@ -60,7 +61,7 @@ public class TaiKhoan_Dao {
                 ps.setString(4, tk.getEmail());
                 return ps.executeUpdate() > 0;
             }
-
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }

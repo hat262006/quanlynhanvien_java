@@ -5,7 +5,7 @@ import service.ChamCong;
 import model.nhan_vien;
 /**
  *
- * @author x
+ * @author Hat262006
  */
 public class nv_May extends nhan_vien {
     private int sanLuong;

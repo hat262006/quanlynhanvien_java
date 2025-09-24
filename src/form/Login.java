@@ -1,4 +1,3 @@
-
 package form;
 
 import dao.TaiKhoan_Dao;
@@ -9,7 +8,7 @@ import javax.swing.JOptionPane;
  * @author x
  */
 public class Login extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
 
     public Login() {
@@ -188,24 +187,17 @@ public class Login extends javax.swing.JFrame {
         String user = txtUserLog.getText();
         String pass = new String(txtPassLog.getPassword());
         TaiKhoan_Dao dao = new TaiKhoan_Dao();
-        int capdo = dao.checkLogin(user, pass);
-
-        if (capdo == -1) {
-            JOptionPane.showMessageDialog(this, "Đăng nhập không thành công !");
-        } else {
+        if (user.isEmpty() || pass.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ tài khoản và mật khẩu");
+            return;
+        }
+        if (dao.checkLogin(user, pass)) {
             JOptionPane.showMessageDialog(this, "Đăng nhập thành công!");
-
-            if (capdo == 1) {
-                // Nếu là admin
-                QL_NS QL_NS = new QL_NS();
-                QL_NS.setVisible(true);
-            } else {
-                // Nếu là user thường
-                ThongTinCaNhan0 ThongTinCaNhan0 = new ThongTinCaNhan0();
-                ThongTinCaNhan0.setVisible(true);
-            }
-
-            this.dispose(); // Đóng form đăng nhập sau khi mở form mới
+            QL_NS QL_NS = new QL_NS();
+            QL_NS.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Sai tài khoản hoặc mật khẩu");
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
