@@ -6,7 +6,8 @@ import model.nhan_vien;
 /**
  *
  * @author Hat262006
- */
+ */ 
+
 public class nv_May extends nhan_vien {
     private int sanLuong;
     private float donGia;
