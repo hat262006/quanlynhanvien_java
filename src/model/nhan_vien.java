@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.sql.Date;
 import service.ChamCong;
 
 /**
@@ -13,9 +14,9 @@ public abstract class nhan_vien {
     private String tenNV;
     private String gioiTinh;
     private String chucVu;
-    private String ngaySinh;
+    private java.sql.Date ngaySinh;
     private String cccd;
-    private String ngayVaoLam;
+    private java.sql.Date ngayVaoLam;
     private String trinhDo;
     private String soDienThoai;
     private String trangThai;
@@ -23,7 +24,7 @@ public abstract class nhan_vien {
 
     //Contructor
 
-    public nhan_vien(String maNV, String tenNV, String gioiTinh, String chucVu, String ngaySinh, String cccd, String ngayVaoLam, String trinhDo, String soDienThoai, String trangThai, String anh) {
+    public nhan_vien(String maNV, String tenNV, String gioiTinh, String chucVu, Date ngaySinh, String cccd,Date ngayVaoLam, String trinhDo, String soDienThoai, String trangThai, String anh) {
         this.maNV = maNV;
         this.tenNV = tenNV;
         this.gioiTinh = gioiTinh;
@@ -55,17 +56,20 @@ public abstract class nhan_vien {
         this.chucVu = chucVu;
     }
 
-    public void setNgaySinh(String ngaySinh) {
-        this.ngaySinh = ngaySinh;
-    }
+    
 
     public void setCccd(String cccd) {
         this.cccd = cccd;
     }
 
-    public void setNgayVaoLam(String ngayVaoLam) {
+    public void setNgaySinh(Date ngaySinh) {
+        this.ngaySinh = ngaySinh;
+    }
+
+    public void setNgayVaoLam(Date ngayVaoLam) {
         this.ngayVaoLam = ngayVaoLam;
     }
+
 
     public void setTrinhDo(String trinhDo) {
         this.trinhDo = trinhDo;
@@ -104,16 +108,16 @@ public abstract class nhan_vien {
         return chucVu;
     }
 
-    public String getNgaySinh() {
+    public Date getNgaySinh() {
         return ngaySinh;
+    }
+
+    public Date getNgayVaoLam() {
+        return ngayVaoLam;
     }
 
     public String getCccd() {
         return cccd;
-    }
-
-    public String getNgayVaoLam() {
-        return ngayVaoLam;
     }
 
     public String getTrinhDo() {

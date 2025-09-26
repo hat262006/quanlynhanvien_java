@@ -73,45 +73,6 @@ public class Cham_Cong extends javax.swing.JFrame {
         anid();
     }
 
-    //    Hàm lấy ngày - tháng - năm
-    public Date getDateCombo(JComboBox<String> cbNgay, JComboBox<String> cbThang, JComboBox<String> cbNam) {
-        String ngay = (String) cbNgay.getSelectedItem();
-        String thang = (String) cbThang.getSelectedItem();
-        String nam = (String) cbNam.getSelectedItem();
-
-        // Chuyển sang số để kiểm tra logic
-        int d = Integer.parseInt(ngay);
-        int m = Integer.parseInt(thang);
-        int y = Integer.parseInt(nam);
-
-        // Tìm số ngày tối đa của tháng đó
-        int maxDay = 31;
-        switch (m) {
-            case 4:
-            case 6:
-            case 9:
-            case 11:
-                maxDay = 30;
-                break;
-            case 2:
-                // Kiểm tra năm nhuận
-                if ((y % 400 == 0) || (y % 4 == 0 && y % 100 != 0)) {
-                    maxDay = 29;
-                } else {
-                    maxDay = 28;
-                }
-                break;
-        }
-
-        if (d > maxDay) {
-            JOptionPane.showMessageDialog(null, "Ngày không hợp lệ! Tháng " + m + " chỉ có tối đa " + maxDay + " ngày.");
-            return null; // trả về null nếu sai
-        }
-
-        // Tạo LocalDate rồi convert sang java.sql.Date
-        LocalDate localDate = LocalDate.of(y, m, d);
-        return java.sql.Date.valueOf(localDate);
-    }
 
     //ẩn cột  id  
     private void anid() {

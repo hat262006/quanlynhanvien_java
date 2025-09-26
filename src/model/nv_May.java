@@ -1,6 +1,6 @@
-
-
 package model;
+
+import java.sql.Date;
 import service.ChamCong;
 import model.nhan_vien;
 /**
@@ -14,17 +14,16 @@ public class nv_May extends nhan_vien {
     private double luongCoDinh;
     private double phuCap;
     
-
-        public nv_May(int sanLuong, float donGia, double luongCoDinh, double phuCap, String maNV, String tenNV, String gioiTinh, String chucVu, String ngaySinh, String cccd, String ngayVaoLam, String trinhDo, String soDienThoai, String trangThai, String anh) {
+    //Contructor 
+    public nv_May(int sanLuong, float donGia, double luongCoDinh, double phuCap, String maNV, String tenNV, String gioiTinh, String chucVu, Date ngaySinh, String cccd, Date ngayVaoLam, String trinhDo, String soDienThoai, String trangThai, String anh) {
         super(maNV, tenNV, gioiTinh, chucVu, ngaySinh, cccd, ngayVaoLam, trinhDo, soDienThoai, trangThai, anh);
         this.sanLuong = sanLuong;
         this.donGia = donGia;
         this.luongCoDinh = luongCoDinh;
         this.phuCap = phuCap;
     }
-
     
-
+    
     public int getSanLuong() {
         return sanLuong;
     }

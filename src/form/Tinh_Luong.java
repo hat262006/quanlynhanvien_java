@@ -119,8 +119,8 @@ public class Tinh_Luong extends javax.swing.JFrame {
                             cc.getMaNV(),
                             cc.getTenNV(),
                             "",
-                            cc.getChucVu(),
-                            "", "", "", "", "", "", "");
+                            chucVu,
+                            null, "", null, "", "", "", "");
                     break;
 
                 case "Công nhân may":
@@ -138,7 +138,7 @@ public class Tinh_Luong extends javax.swing.JFrame {
                     }
                     nv = new nv_May(sanLuong, donGia, luongCoDinh, phuCap,
                             cc.getMaNV(), cc.getTenNV(), "", chucVu,
-                            "", "", "", "", "", "", "");
+                            null, "", null, "", "", "","");
                     break;
 
                 case "Nhân viên văn phòng":
@@ -151,7 +151,7 @@ public class Tinh_Luong extends javax.swing.JFrame {
                     }
                     nv = new nv_VanPhong(luongCB, thuong, phat,
                             cc.getMaNV(), cc.getTenNV(), "", chucVu,
-                            "", "", "", "", "", "", "");
+                            null, "", null, "", "", "", "");
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, "Chức vụ chưa hỗ trợ tính lương!");

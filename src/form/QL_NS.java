@@ -10,6 +10,8 @@ import java.awt.Image;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import java.io.File;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -120,20 +122,44 @@ public class QL_NS extends javax.swing.JFrame {
         anCotAnh();
     }
 
-    //    Hàm lấy ngày - tháng -năm
-    public String getDateCombo(JComboBox<String> cbNgay, JComboBox<String> cbThang, JComboBox<String> cbNam) {
+    //    Hàm lấy ngày - tháng - năm
+    public Date getDateCombo(JComboBox<String> cbNgay, JComboBox<String> cbThang, JComboBox<String> cbNam) {
         String ngay = (String) cbNgay.getSelectedItem();
         String thang = (String) cbThang.getSelectedItem();
         String nam = (String) cbNam.getSelectedItem();
 
-        if (ngay.length() == 1) {
-            ngay = "0" + ngay;
-        }
-        if (thang.length() == 1) {
-            thang = "0" + thang;
+        // Chuyển sang số để kiểm tra logic
+        int d = Integer.parseInt(ngay);
+        int m = Integer.parseInt(thang);
+        int y = Integer.parseInt(nam);
+
+        // Tìm số ngày tối đa của tháng đó
+        int maxDay = 31;
+        switch (m) {
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                maxDay = 30;
+                break;
+            case 2:
+                // Kiểm tra năm nhuận
+                if ((y % 400 == 0) || (y % 4 == 0 && y % 100 != 0)) {
+                    maxDay = 29;
+                } else {
+                    maxDay = 28;
+                }
+                break;
         }
 
-        return ngay + "/" + thang + "/" + nam; // hoặc: return nam + "-" + thang + "-" + ngay;
+        if (d > maxDay) {
+            JOptionPane.showMessageDialog(null, "Ngày không hợp lệ! Tháng " + m + " chỉ có tối đa " + maxDay + " ngày.");
+            return null; // trả về null nếu sai
+        }
+
+        // Tạo LocalDate rồi convert sang java.sql.Date
+        LocalDate localDate = LocalDate.of(y, m, d);
+        return java.sql.Date.valueOf(localDate);
     }
 
     // Hàm lấy dữ liệu - Kiểm tra - Tạo object
@@ -143,8 +169,8 @@ public class QL_NS extends javax.swing.JFrame {
         String hoTen = txtHoTen.getText().trim();
         String gioiTinh = cbGioiTinh.getSelectedItem().toString();
         String chucVu = cbChucVu.getSelectedItem().toString();
-        String ngaySinh = getDateCombo(cbNgay1, cbThang1, cbNam1);
-        String ngayVaoLam = getDateCombo(cbNgay2, cbThang2, cbNam2);
+        java.sql.Date ngaySinh = getDateCombo(cbNgay1, cbThang1, cbNam1);
+        java.sql.Date ngayVaoLam = getDateCombo(cbNgay2, cbThang2, cbNam2);
         String cccd = txtCCCD.getText().trim();
         String trinhDo = txtTrinhDo.getText().trim();
         String sdt = txtSoDienThoai.getText().trim();

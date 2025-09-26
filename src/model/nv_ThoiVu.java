@@ -1,6 +1,7 @@
 
 package model;
 
+import java.sql.Date;
 import service.ChamCong;
 import model.nhan_vien;
 
@@ -10,13 +11,14 @@ import model.nhan_vien;
  */
 public class nv_ThoiVu extends nhan_vien {
     private double luongMotGio;
+    
     //Contructor 
 
-    public nv_ThoiVu(double luongMotGio, String maNV, String tenNV, String gioiTinh, String chucVu, String ngaySinh, String cccd, String ngayVaoLam, String trinhDo, String soDienThoai, String trangThai, String anh) {
+    public nv_ThoiVu(double luongMotGio, String maNV, String tenNV, String gioiTinh, String chucVu, Date ngaySinh, String cccd, Date ngayVaoLam, String trinhDo, String soDienThoai, String trangThai, String anh) {
         super(maNV, tenNV, gioiTinh, chucVu, ngaySinh, cccd, ngayVaoLam, trinhDo, soDienThoai, trangThai, anh);
         this.luongMotGio = luongMotGio;
     }
-  
+
 
     public double getLuongMotGio() {
         return luongMotGio;

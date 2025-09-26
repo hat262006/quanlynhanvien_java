@@ -8,7 +8,6 @@ import java.time.LocalDate;
  * @author hat262006
  */
 public class ChamCong {
-
     private String id;
     private String maNV;
     private String tenNV;
@@ -19,7 +18,8 @@ public class ChamCong {
     private java.sql.Date ngay;
     private String trangThai;
 
-    public ChamCong(String id, String maNV, String tenNV, String chucVu, float gioLam, float gioTangCa, float hsTangCa, Date ngay, String trangThai) {
+    public ChamCong(String id, String maNV, String tenNV,
+            String chucVu, float gioLam, float gioTangCa, float hsTangCa, Date ngay, String trangThai) {
         this.id = id;
         this.maNV = maNV;
         this.tenNV = tenNV;

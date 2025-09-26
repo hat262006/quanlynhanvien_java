@@ -17,7 +17,6 @@ import model.nhan_vien;
 import model.nv_May;
 import model.nv_ThoiVu;
 
-
 public class QLNV_DAO {
 
     // Ham Thêm
@@ -26,21 +25,14 @@ public class QLNV_DAO {
                 + "chuc_vu, ngay_sinh, cccd, ngay_vao_lam, trinh_do, so_dien_thoai, trang_thai,anh) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = DBConnection.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
-            // Xử lý ngày sinh
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            LocalDate localDateSinh = LocalDate.parse(nv.getNgaySinh(), formatter);
-            java.sql.Date sqlDateNs = java.sql.Date.valueOf(localDateSinh);
 
-            // Xử lý ngày vào làm
-            LocalDate localDateVaoLam = LocalDate.parse(nv.getNgayVaoLam(), formatter);
-            java.sql.Date sqlDateVaoLam = java.sql.Date.valueOf(localDateVaoLam);
             ps.setString(1, nv.getMaNV());
             ps.setString(2, nv.getTenNV());
             ps.setString(3, nv.getGioiTinh());
             ps.setString(4, nv.getChucVu());
-            ps.setDate(5, sqlDateNs);
+            ps.setDate(5, nv.getNgaySinh());
             ps.setString(6, nv.getCccd());
-            ps.setDate(7, sqlDateVaoLam);
+            ps.setDate(7, nv.getNgayVaoLam());
             ps.setString(8, nv.getTrinhDo());
             ps.setString(9, nv.getSoDienThoai());
             ps.setString(10, nv.getTrangThai());
@@ -103,9 +95,9 @@ public class QLNV_DAO {
                 String tenNV = rs.getString("ho_ten");
                 String gioiTinh = rs.getString("gioi_tinh");
                 String chucVu = rs.getString("chuc_vu");
-                String ngaySinh = rs.getDate("ngay_sinh").toLocalDate().format(formatter);
+                java.sql.Date ngaySinh = rs.getDate("ngay_sinh");
                 String cccd = rs.getString("cccd");
-                String ngayVaoLam = rs.getDate("ngay_vao_lam").toLocalDate().format(formatter);
+                java.sql.Date ngayVaoLam = rs.getDate("ngay_vao_lam");
                 String trinhDo = rs.getString("trinh_do");
                 String soDienThoai = rs.getString("so_dien_thoai");
                 String trangThai = rs.getString("trang_thai");
@@ -240,25 +232,16 @@ public class QLNV_DAO {
 
         try (Connection conn = DBConnection.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            // Chuyển đổi ngày sinh và ngày vào làm thành java.sql.Date
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            LocalDate localDateSinh = LocalDate.parse(nv.getNgaySinh(), formatter);
-            java.sql.Date sqlDateSinh = java.sql.Date.valueOf(localDateSinh);
-
-            LocalDate localDateVaoLam = LocalDate.parse(nv.getNgayVaoLam(), formatter);
-            java.sql.Date sqlDateVaoLam = java.sql.Date.valueOf(localDateVaoLam);
-
             // Gán giá trị vào PreparedStatement theo đúng thứ tự
-            ps.setString(1, nv.getTenNV());        // Họ tên
-            ps.setString(2, nv.getGioiTinh());     // Giới tính
-            ps.setString(3, nv.getChucVu());       // Chức vụ
-            ps.setDate(4, sqlDateSinh);            // Ngày sinh
-            ps.setString(5, nv.getCccd());         // CCCD
-            ps.setDate(6, sqlDateVaoLam);          // Ngày vào làm
-            ps.setString(7, nv.getTrinhDo());     // Trình độ
-            ps.setString(8, nv.getSoDienThoai()); // Số điện thoại
-            ps.setString(9, nv.getTrangThai());    // Trạng thái
-            ps.setString(10, nv.getAnh());           //Anh
+            ps.setString(1, nv.getTenNV());
+            ps.setString(2, nv.getGioiTinh());
+            ps.setString(3, nv.getChucVu());
+            ps.setDate(4, nv.getNgaySinh());
+            ps.setString(5, nv.getCccd());
+            ps.setDate(6, nv.getNgayVaoLam());
+            ps.setString(8, nv.getSoDienThoai());
+            ps.setString(9, nv.getTrangThai());
+            ps.setString(10, nv.getAnh());
             ps.setString(11, nv.getMaNV());        // Mã nhân viên (sử dụng để tìm bản ghi)
 
             // Thực hiện câu lệnh UPDATE
@@ -275,5 +258,5 @@ public class QLNV_DAO {
             return false;
         }
     }
-    
+
 }

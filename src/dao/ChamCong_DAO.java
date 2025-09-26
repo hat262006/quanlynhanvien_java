@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.time.LocalDate;
+//import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,8 @@ public class ChamCong_DAO {
     public boolean themChamCong(ChamCong cc) {
         String sql = "INSERT INTO cham_cong(ma_nhan_vien, ngay, gio_lam, gio_tang_ca, hs_tang_ca, trang_thai) "
                 + "VALUES ( ?, ?, ?, ?, ?, ?)";
-        try (Connection conn = DBConnection.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, cc.getMaNV());
             ps.setDate(2, cc.getNgay());
