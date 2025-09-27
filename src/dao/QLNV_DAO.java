@@ -239,6 +239,7 @@ public class QLNV_DAO {
             ps.setDate(4, nv.getNgaySinh());
             ps.setString(5, nv.getCccd());
             ps.setDate(6, nv.getNgayVaoLam());
+            ps.setString(7, nv.getTrinhDo());
             ps.setString(8, nv.getSoDienThoai());
             ps.setString(9, nv.getTrangThai());
             ps.setString(10, nv.getAnh());
@@ -250,7 +251,7 @@ public class QLNV_DAO {
                 return true;  // Nếu có dòng bị thay đổi thì trả về true
             } else {
                 // Nếu không có dòng bị ảnh hưởng 
-                JOptionPane.showMessageDialog(null, "Mã nhân viên không thể chỉnh sửa, vui lòng kiểm tra lại!");
+                
                 return false;
             }
         } catch (SQLException e) {

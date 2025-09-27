@@ -462,11 +462,11 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="cbNgay1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="cbNgay" min="-2" pref="50" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                      <Component id="cbThang1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="cbThang" min="-2" pref="50" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="cbNam1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cbNam" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="txtGioLam" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtMaNhanVien" alignment="0" max="32767" attributes="0"/>
@@ -517,9 +517,9 @@
                               </Group>
                               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="cbNgay1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cbNam1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cbThang1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbNgay" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbNam" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbThang" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtngay_sinh4" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -567,7 +567,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cbThang1">
+            <Component class="javax.swing.JComboBox" name="cbThang">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="12">
@@ -587,7 +587,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbThang1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbThangActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -601,7 +601,7 @@
                 <Property name="text" type="java.lang.String" value="T&#x103;ng ca (gi&#x1edd;)"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cbNgay1">
+            <Component class="javax.swing.JComboBox" name="cbNgay">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="31">
@@ -640,13 +640,13 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbNgay1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbNgayActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cbNam1">
+            <Component class="javax.swing.JComboBox" name="cbNam">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
@@ -657,7 +657,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbNam1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbNamActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

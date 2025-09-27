@@ -1,13 +1,11 @@
 package form;
 
-import form.Cham_Cong;
 import service.ChamCong;
 import dao.TinhLuong_DAO;
 import dao.TaiKhoan_Dao;
 import model.nv_VanPhong;
 import model.nhan_vien;
 import java.awt.CardLayout;
-import java.sql.SQLException;
 import java.awt.Color;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
@@ -21,8 +19,7 @@ import javax.swing.table.DefaultTableModel;
 import dao.QLNV_DAO;
 import model.nv_May;
 import model.nv_ThoiVu;
-import model.nv_ThoiVu;
-import model.nv_ThoiVu;
+
 
 /**
  *

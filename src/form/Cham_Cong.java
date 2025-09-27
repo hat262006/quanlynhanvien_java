@@ -14,7 +14,6 @@ import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author Hat262006
@@ -70,6 +69,7 @@ public class Cham_Cong extends javax.swing.JFrame {
 
         // Cập nhật bảng với dữ liệu đã sắp xếp
         jTableNs.setModel(model); // 
+        lamMoi();
         anid();
     }
 
@@ -117,7 +117,7 @@ public class Cham_Cong extends javax.swing.JFrame {
             // Lấy dữ liệu từ form
             String maNv = txtMaNhanVien.getText().trim();
             String trangThai = cbTrangThai.getSelectedItem().toString();
-            java.sql.Date ngay = getDateCombo(cbNgay1, cbThang1, cbNam1);
+            java.sql.Date ngay = QL_NS.getDateCombo(cbNgay, cbThang, cbNam);
             String gioLam_str = txtGioLam.getText().trim();
             String gioTangCa_str = txtGioTangCa.getText().trim();
             String hsTangCa_str = txtHeSoTangCa.getText().trim();
@@ -170,10 +170,10 @@ public class Cham_Cong extends javax.swing.JFrame {
         txtMaNhanVien = new javax.swing.JTextField();
         txtma_nhan_vien1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        cbThang1 = new javax.swing.JComboBox<>();
+        cbThang = new javax.swing.JComboBox<>();
         txtso_dien_thoai2 = new javax.swing.JLabel();
-        cbNgay1 = new javax.swing.JComboBox<>();
-        cbNam1 = new javax.swing.JComboBox<>();
+        cbNgay = new javax.swing.JComboBox<>();
+        cbNam = new javax.swing.JComboBox<>();
         txtngay_sinh4 = new javax.swing.JLabel();
         txtghi_chu1 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -408,27 +408,27 @@ public class Cham_Cong extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
-        cbThang1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-        cbThang1.addActionListener(new java.awt.event.ActionListener() {
+        cbThang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        cbThang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbThang1ActionPerformed(evt);
+                cbThangActionPerformed(evt);
             }
         });
 
         txtso_dien_thoai2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txtso_dien_thoai2.setText("Tăng ca (giờ)");
 
-        cbNgay1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        cbNgay1.addActionListener(new java.awt.event.ActionListener() {
+        cbNgay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        cbNgay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbNgay1ActionPerformed(evt);
+                cbNgayActionPerformed(evt);
             }
         });
 
-        cbNam1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2025", "2024", "2023" }));
-        cbNam1.addActionListener(new java.awt.event.ActionListener() {
+        cbNam.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2025", "2024", "2023" }));
+        cbNam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbNam1ActionPerformed(evt);
+                cbNamActionPerformed(evt);
             }
         });
 
@@ -495,11 +495,11 @@ public class Cham_Cong extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(BodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(BodyLayout.createSequentialGroup()
-                                .addComponent(cbNgay1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbNgay, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(15, 15, 15)
-                                .addComponent(cbThang1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbThang, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(cbNam1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cbNam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtGioLam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtMaNhanVien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -538,9 +538,9 @@ public class Cham_Cong extends javax.swing.JFrame {
                             .addComponent(txtHeSoTangCa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(45, 45, 45)
                         .addGroup(BodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbNgay1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbNam1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbThang1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbNgay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbNam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbThang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtngay_sinh4))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(BodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -817,8 +817,7 @@ public class Cham_Cong extends javax.swing.JFrame {
         txtTimKiem.setText("");
     }
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        lamMoi();
-        loadDataToTable();
+      loadDataToTable();
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnThem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem12ActionPerformed
@@ -839,7 +838,6 @@ public class Cham_Cong extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Mã nhân viên không đúng!");
         }
-
     }//GEN-LAST:event_btnThem12ActionPerformed
 
     private void btnThem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem14ActionPerformed
@@ -856,17 +854,17 @@ public class Cham_Cong extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMaNhanVienActionPerformed
 
-    private void cbThang1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbThang1ActionPerformed
+    private void cbThangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbThangActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbThang1ActionPerformed
+    }//GEN-LAST:event_cbThangActionPerformed
 
-    private void cbNgay1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNgay1ActionPerformed
+    private void cbNgayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNgayActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbNgay1ActionPerformed
+    }//GEN-LAST:event_cbNgayActionPerformed
 
-    private void cbNam1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNam1ActionPerformed
+    private void cbNamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNamActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbNam1ActionPerformed
+    }//GEN-LAST:event_cbNamActionPerformed
 
     private void cbTrangThaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTrangThaiActionPerformed
         // TODO add your handling code here:
@@ -909,7 +907,6 @@ public class Cham_Cong extends javax.swing.JFrame {
 
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
         // Lưu
-
         // Lấy dữ liệu từ các JTextField
         ChamCong cc = validateChamCong();
 
@@ -917,11 +914,10 @@ public class Cham_Cong extends javax.swing.JFrame {
             // Gọi DAO để cập nhật thông tin nhân viên
             ChamCong_DAO dao = new ChamCong_DAO();
             boolean success = dao.capNhatNhanVien(cc);
-
+            
             if (success) {
                 JOptionPane.showMessageDialog(this, "Cập nhật thành công!");
                 loadDataToTable();
-                lamMoi();
             } else {
                 JOptionPane.showMessageDialog(this, "Mã nhân viên không chính xác");
             }
@@ -970,9 +966,9 @@ public class Cham_Cong extends javax.swing.JFrame {
     private javax.swing.JButton btnThem13;
     private javax.swing.JButton btnThem14;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> cbNam1;
-    private javax.swing.JComboBox<String> cbNgay1;
-    private javax.swing.JComboBox<String> cbThang1;
+    private javax.swing.JComboBox<String> cbNam;
+    private javax.swing.JComboBox<String> cbNgay;
+    private javax.swing.JComboBox<String> cbThang;
     private javax.swing.JComboBox<String> cbTrangThai;
     private javax.swing.JComboBox<String> comboBoxSapXep;
     private javax.swing.JPanel header2;

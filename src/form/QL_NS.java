@@ -1,14 +1,11 @@
 package form;
 
-import form.Tinh_Luong;
-import form.Cham_Cong;
 import dao.TaiKhoan_Dao;
 import dao.QLNV_DAO;
 import model.nv_VanPhong;
 import model.nhan_vien;
 import java.awt.Image;
 import java.sql.SQLException;
-import java.awt.event.ActionEvent;
 import java.io.File;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -24,7 +21,6 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import model.nv_May;
 import model.nv_ThoiVu;
-
 
 /**
  *
@@ -96,7 +92,7 @@ public class QL_NS extends javax.swing.JFrame {
 
         // Tạo DAO và lấy danh sách nhân viên đã sắp xếp
         QLNV_DAO dao = new QLNV_DAO();
-        List<nhan_vien> list = dao.getAll(keyWord,sapXepTheo, thuTu); 
+        List<nhan_vien> list = dao.getAll(keyWord, sapXepTheo, thuTu);
         // Gọi phương thức getAll với tiêu chí và thứ tự sắp xếp
 
         // Duyệt qua danh sách nhân viên và thêm từng dòng vào bảng
@@ -120,10 +116,11 @@ public class QL_NS extends javax.swing.JFrame {
         jTableNs.setModel(model); // 
         // ẩn cột ảnh
         anCotAnh();
+        lamMoi();
     }
 
     //    Hàm lấy ngày - tháng - năm
-    public Date getDateCombo(JComboBox<String> cbNgay, JComboBox<String> cbThang, JComboBox<String> cbNam) {
+    public static Date getDateCombo(JComboBox<String> cbNgay, JComboBox<String> cbThang, JComboBox<String> cbNam) {
         String ngay = (String) cbNgay.getSelectedItem();
         String thang = (String) cbThang.getSelectedItem();
         String nam = (String) cbNam.getSelectedItem();
@@ -267,8 +264,8 @@ public class QL_NS extends javax.swing.JFrame {
         jTableNs.getColumnModel().getColumn(10).setMaxWidth(0);
         jTableNs.getColumnModel().getColumn(10).setWidth(0);
     }
-//    hàm làm mới 
 
+    //    Hàm làm mới 
     public void lamMoi() {
         txtMaNhanVien.setText("");
         txtHoTen.setText("");
@@ -1109,7 +1106,7 @@ public class QL_NS extends javax.swing.JFrame {
         if (ns.them(nv)) {
             JOptionPane.showMessageDialog(this, "Thêm nhân viên thành công!");
             loadDataToTable();
-            lamMoi();
+
         } else {
             JOptionPane.showMessageDialog(this, "Thêm thất bại!");
         }
@@ -1119,19 +1116,16 @@ public class QL_NS extends javax.swing.JFrame {
         // LƯU
         // Lấy dữ liệu từ các JTextField
         nhan_vien nv = validateNhanVien();
-
         if (nv != null) {
             // Gọi DAO để cập nhật thông tin nhân viên
             QLNV_DAO dao = new QLNV_DAO();
             boolean success = dao.capNhatNhanVien(nv);
-
             if (success) {
                 JOptionPane.showMessageDialog(this, "Cập nhật thành công!");
-                // Cập nhật lại JTable nếu cần
+                // Cập nhật lại JTable 
                 loadDataToTable();
-                lamMoi();
             } else {
-                JOptionPane.showMessageDialog(this, "Cập nhật thất bại!");
+                JOptionPane.showMessageDialog(this, "Mã nhân viên không thể chỉnh sửa!");
             }
         }
     }//GEN-LAST:event_btnLuuActionPerformed
@@ -1189,7 +1183,7 @@ public class QL_NS extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-    //làm mới 
+        //làm mới 
         lamMoi();
         loadDataToTable();
 
