@@ -29,7 +29,8 @@ public class TinhLuong_DAO {
                 + "JOIN nhan_su n ON c.ma_nhan_vien = n.ma_nhan_vien\n"
                 + "WHERE c.ma_nhan_vien = ?";
 
-        try (Connection conn = DBConnection.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+        try (Connection conn = DBConnection.getConnection(); 
+            PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, maNV);
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {

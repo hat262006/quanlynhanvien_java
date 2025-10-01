@@ -202,7 +202,7 @@ public class QL_NS extends javax.swing.JFrame {
             return null;
         }
 
-        // 
+        // Tạo nhân viên theo chức vụ 
         nhan_vien nv = null;
 
         switch (chucVu) {
@@ -244,7 +244,7 @@ public class QL_NS extends javax.swing.JFrame {
         try {
             // Tạo ImageIcon từ đường dẫn
             ImageIcon icon = new ImageIcon(duongDanAnh);
-
+            
             // Scale ảnh cho vừa JLabel
             Image img = icon.getImage().getScaledInstance(
                     label.getWidth(), label.getHeight(),
@@ -277,6 +277,8 @@ public class QL_NS extends javax.swing.JFrame {
         txtTrinhDo.setText("");
         txtSoDienThoai.setText("");
         txtTimKiem.setText("");
+        String anhMacDinh = "src/icon/avt.jpg";
+        setAnhNhanVien(labelAnh, anhMacDinh);
     }
 
     @SuppressWarnings("unchecked")
@@ -1185,7 +1187,6 @@ public class QL_NS extends javax.swing.JFrame {
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         //làm mới 
         lamMoi();
-        loadDataToTable();
 
     }//GEN-LAST:event_btnResetActionPerformed
 

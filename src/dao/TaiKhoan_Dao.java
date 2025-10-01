@@ -17,8 +17,6 @@ import model.TaiKhoan;
  */
 public class TaiKhoan_Dao {
 
-    private Connection conn;
-
     // kiểm tra + đăng nhập
     public boolean checkLogin(String user, String pass) {
         String sql = "SELECT * FROM taikhoan WHERE username=? AND password=?";

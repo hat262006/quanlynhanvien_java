@@ -739,11 +739,11 @@
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="txtPhat" min="-2" pref="130" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
-                                      <Component id="btnThem_May" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnThem_May" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="txtThuong" min="-2" pref="130" max="-2" attributes="0"/>
@@ -936,7 +936,7 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="txtma_nhan_vien1" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtma_nhan_vien3" min="-2" max="-2" attributes="0"/>
@@ -946,12 +946,12 @@
                                   <Component id="txtMaNhanVien2" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
                                   <Component id="txtLuong1h" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="367" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="376" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="btnThem18" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnThem17" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="365" max="32767" attributes="0"/>
+                              <EmptySpace pref="305" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
