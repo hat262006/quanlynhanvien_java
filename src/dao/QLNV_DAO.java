@@ -251,7 +251,6 @@ public class QLNV_DAO {
                 return true;  // Nếu có dòng bị thay đổi thì trả về true
             } else {
                 // Nếu không có dòng bị ảnh hưởng 
-                
                 return false;
             }
         } catch (SQLException e) {
