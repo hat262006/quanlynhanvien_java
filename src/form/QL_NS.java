@@ -2,26 +2,44 @@ package form;
 
 import dao.TaiKhoan_Dao;
 import dao.QLNV_DAO;
+
 import model.nv_VanPhong;
 import model.nhan_vien;
+import model.nv_May;
+import model.nv_ThoiVu;
+
 import java.awt.Image;
+import javax.swing.ImageIcon;
 import java.sql.SQLException;
+
 import java.io.File;
+import java.io.FileOutputStream;
+
+import java.io.IOException;
+
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
-import javax.swing.ImageIcon;
+
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
-import model.nv_May;
-import model.nv_ThoiVu;
+import javax.swing.table.TableModel;
 
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import javax.swing.*;
+import javax.swing.table.TableModel;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 /**
  *
  * @author
@@ -244,7 +262,7 @@ public class QL_NS extends javax.swing.JFrame {
         try {
             // Tạo ImageIcon từ đường dẫn
             ImageIcon icon = new ImageIcon(duongDanAnh);
-            
+
             // Scale ảnh cho vừa JLabel
             Image img = icon.getImage().getScaledInstance(
                     label.getWidth(), label.getHeight(),
@@ -280,7 +298,59 @@ public class QL_NS extends javax.swing.JFrame {
         String anhMacDinh = "src/icon/avt.jpg";
         setAnhNhanVien(labelAnh, anhMacDinh);
     }
+    //    ===HÀM XUẤT EXEL===
+    public static void xuatExcelTuJTable(JTable table, String filePath ,String txt_sheet ) {
+        Workbook workbook = new XSSFWorkbook();
+        Sheet sheet = workbook.createSheet(txt_sheet);
 
+        TableModel model = table.getModel();
+
+        // Ghi header (tên cột)
+        Row headerRow = sheet.createRow(0);
+        for (int col = 0; col < model.getColumnCount(); col++) {
+            Cell cell = headerRow.createCell(col);
+            cell.setCellValue(model.getColumnName(col));
+        }
+
+        // Ghi dữ liệu từng dòng
+        for (int row = 0; row < model.getRowCount(); row++) {
+            Row excelRow = sheet.createRow(row + 1);
+            for (int col = 0; col < model.getColumnCount(); col++) {
+                Cell cell = excelRow.createCell(col);
+                Object value = model.getValueAt(row, col);
+                cell.setCellValue(value == null ? "" : value.toString());
+            }
+        }
+
+        // Tự động căn chỉnh độ rộng cột
+        for (int col = 0; col < model.getColumnCount(); col++) {
+            sheet.autoSizeColumn(col);
+        }
+
+        try (FileOutputStream out = new FileOutputStream(new File(filePath))) {
+            workbook.write(out);
+            workbook.close();
+            JOptionPane.showMessageDialog(null, "Xuất Excel thành công: ");
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Lỗi khi ghi file Excel: ");
+        }
+    }
+    public static void xuatExcel(JTable table,String txt_sheet){
+     JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setCurrentDirectory(new File("C:\\Users\\x\\Downloads\\HAT\\Java_oop\\BAI_TAP_LON\\QLNV_MA\\excel"));
+        fileChooser.setDialogTitle("Lưu file Excel");
+        int userSelection = fileChooser.showSaveDialog(null);
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToSave = fileChooser.getSelectedFile();
+            String filePath = fileToSave.getAbsolutePath();
+            // Thêm đuôi .xlsx nếu người dùng không nhập
+            if (!filePath.endsWith(".xlsx")) {
+                filePath += ".xlsx";
+            }
+            xuatExcelTuJTable(table, filePath, txt_sheet);
+        }
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -340,7 +410,7 @@ public class QL_NS extends javax.swing.JFrame {
         radioButtonGiamDan = new javax.swing.JRadioButton();
         txtma_nhan_vien3 = new javax.swing.JLabel();
         txtTrangThai = new javax.swing.JTextField();
-        btnThem13 = new javax.swing.JButton();
+        btnXuatExel = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -873,14 +943,14 @@ public class QL_NS extends javax.swing.JFrame {
             }
         });
 
-        btnThem13.setBackground(new java.awt.Color(204, 204, 255));
-        btnThem13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/sm_5b33460f04516-removebg-preview.png"))); // NOI18N
-        btnThem13.setText("Xuất File");
-        btnThem13.setFocusPainted(false);
-        btnThem13.setPreferredSize(new java.awt.Dimension(70, 25));
-        btnThem13.addActionListener(new java.awt.event.ActionListener() {
+        btnXuatExel.setBackground(new java.awt.Color(204, 204, 255));
+        btnXuatExel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/sm_5b33460f04516-removebg-preview.png"))); // NOI18N
+        btnXuatExel.setText("Xuất File");
+        btnXuatExel.setFocusPainted(false);
+        btnXuatExel.setPreferredSize(new java.awt.Dimension(70, 25));
+        btnXuatExel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnThem13ActionPerformed(evt);
+                btnXuatExelActionPerformed(evt);
             }
         });
 
@@ -907,7 +977,7 @@ public class QL_NS extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnThem13, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnXuatExel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(98, 98, 98))
         );
         jPanel9Layout.setVerticalGroup(
@@ -926,7 +996,7 @@ public class QL_NS extends javax.swing.JFrame {
                             .addComponent(radioButtonGiamDan)
                             .addComponent(txtma_nhan_vien3)
                             .addComponent(txtTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnThem13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnXuatExel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1240,10 +1310,11 @@ public class QL_NS extends javax.swing.JFrame {
     private void txtCCCDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCCCDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCCCDActionPerformed
-
-    private void btnThem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem13ActionPerformed
+    
+    private void btnXuatExelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXuatExelActionPerformed
         // Xuất excel
-    }//GEN-LAST:event_btnThem13ActionPerformed
+        xuatExcel(jTableNs, "Nhân sự");
+    }//GEN-LAST:event_btnXuatExelActionPerformed
 
     private void txtTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimKiemActionPerformed
         // TODO add your handling code here:
@@ -1278,9 +1349,9 @@ public class QL_NS extends javax.swing.JFrame {
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnThem10;
     private javax.swing.JButton btnThem12;
-    private javax.swing.JButton btnThem13;
     private javax.swing.JButton btnThem14;
     private javax.swing.JButton btnThem15;
+    private javax.swing.JButton btnXuatExel;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbChucVu;
     private javax.swing.JComboBox<String> cbGioiTinh;

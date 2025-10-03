@@ -1097,7 +1097,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="txtTrangThai" min="-2" pref="155" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btnThem13" min="-2" pref="115" max="-2" attributes="0"/>
+                      <Component id="btnXuatExel" min="-2" pref="115" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1120,7 +1120,7 @@
                                   <Component id="radioButtonGiamDan" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtma_nhan_vien3" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtTrangThai" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnThem13" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnXuatExel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1238,7 +1238,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTrangThaiActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnThem13">
+            <Component class="javax.swing.JButton" name="btnXuatExel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="cc" red="cc" type="rgb"/>
@@ -1253,7 +1253,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThem13ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXuatExelActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

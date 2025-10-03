@@ -29,8 +29,7 @@ public class TinhLuong_DAO {
                 + "JOIN nhan_su n ON c.ma_nhan_vien = n.ma_nhan_vien\n"
                 + "WHERE c.ma_nhan_vien = ?";
 
-        try (Connection conn = DBConnection.getConnection(); 
-            PreparedStatement ps = conn.prepareStatement(sql)) {
+        try (Connection conn = DBConnection.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, maNV);
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
@@ -151,30 +150,23 @@ public class TinhLuong_DAO {
             }
             sql += "Tăng dần".equals(thuTu) ? "ASC" : "DESC";
         }
-       try (Connection conn = DBConnection.getConnection();
-         Statement st = conn.createStatement();
-         ResultSet rs = st.executeQuery(sql)) {
-                while (rs.next()) {
-                    Object[] row = new Object[]{
-                        rs.getString("ma_nhan_vien"),
-                        rs.getString("ten_nv"),
-                        rs.getString("chuc_vu"),
-                        rs.getFloat("gio_Lam"),
-                        rs.getFloat("tang_ca"),
-                        rs.getFloat("hs_tang_ca"),
-                        rs.getDouble("tong_luong")
-                    };
+        try (Connection conn = DBConnection.getConnection(); Statement st = conn.createStatement(); ResultSet rs = st.executeQuery(sql)) {
+            while (rs.next()) {
+                Object[] row = new Object[]{
+                    rs.getString("ma_nhan_vien"),
+                    rs.getString("ten_nv"),
+                    rs.getString("chuc_vu"),
+                    rs.getFloat("gio_Lam"),
+                    rs.getFloat("tang_ca"),
+                    rs.getFloat("hs_tang_ca"),
+                    rs.getDouble("tong_luong")
+                };
 
-                    list.add(row);
-                }
+                list.add(row);
             }
-   
-    catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
-    }
-
-
-return list;
         }
-
+        return list;
     }
+}

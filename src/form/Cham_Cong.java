@@ -4,6 +4,7 @@ import service.ChamCong;
 import dao.TaiKhoan_Dao;
 import dao.QLNV_DAO;
 import dao.ChamCong_DAO;
+import static form.QL_NS.xuatExcel;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -81,7 +82,7 @@ public class Cham_Cong extends javax.swing.JFrame {
         jTableNs.getColumnModel().getColumn(0).setWidth(0);
     }
 
-    // Phương thức thêm sự kiện cho JTable
+    // Thêm sự kiện cho JTable
     void themSuKienChonDong() {
         jTableNs.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -888,6 +889,7 @@ public class Cham_Cong extends javax.swing.JFrame {
 
     private void btnThem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem13ActionPerformed
         // Xuất excel
+        xuatExcel(jTableNs, "Chấm Công");
     }//GEN-LAST:event_btnThem13ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

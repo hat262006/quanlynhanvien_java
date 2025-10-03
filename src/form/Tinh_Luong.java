@@ -17,6 +17,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import dao.QLNV_DAO;
+import static form.QL_NS.xuatExcel;
 import model.nv_May;
 import model.nv_ThoiVu;
 
@@ -1438,6 +1439,7 @@ public class Tinh_Luong extends javax.swing.JFrame {
 
     private void btnThem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem13ActionPerformed
         // Xuất excel
+        xuatExcel(jTableNs,"Bảng lương");
     }//GEN-LAST:event_btnThem13ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
