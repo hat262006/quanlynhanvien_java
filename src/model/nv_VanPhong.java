@@ -1,4 +1,3 @@
-
 package model;
 
 import java.sql.Date;
@@ -6,7 +5,6 @@ import model.nhan_vien;
 import service.ChamCong;
 
 /**
- *
  * @author hat262006
  */
 public class nv_VanPhong extends nhan_vien {
@@ -25,34 +23,13 @@ public class nv_VanPhong extends nhan_vien {
         this.thuong = thuong;
         this.phat = phat;
     }
-   
-
-    public double getLuongCoBan() {
-        return luongCoBan;
-    }
-
-    public void setLuongCoBan(double luongCoBan) {
-        this.luongCoBan = luongCoBan;
-    }
-
-    public double getThuong() {
-        return thuong;
-    }
-
-    public void setThuong(double thuong) {
-        this.thuong = thuong;
-    }
-
-    public double getPhat() {
-        return phat;
-    }
-
-    public void setPhat(double phat) {
-        this.phat = phat;
-    }
-
-    
-    
+    //Get & set
+public double getLuongCoBan() {return luongCoBan;}
+public void setLuongCoBan(double luongCoBan) {this.luongCoBan = luongCoBan;}
+public double getThuong() {return thuong;}
+public void setThuong(double thuong) {this.thuong = thuong;}
+public double getPhat() {return phat;}
+public void setPhat(double phat) {this.phat = phat;}
     // Tinh luong
     @Override
     public double tinhLuong(ChamCong cc) {

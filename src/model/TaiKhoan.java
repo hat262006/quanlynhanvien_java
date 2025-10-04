@@ -5,7 +5,6 @@ package model;
  * @author Hat262006
  */
 public class TaiKhoan {
-
     private String user;
     private String pass;
     private String hoTen;
