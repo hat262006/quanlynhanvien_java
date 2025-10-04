@@ -15,8 +15,12 @@ public class nv_May extends nhan_vien {
     private double phuCap;
     
     //Contructor 
-    public nv_May(int sanLuong, float donGia, double luongCoDinh, double phuCap, String maNV, String tenNV, String gioiTinh, String chucVu, Date ngaySinh, String cccd, Date ngayVaoLam, String trinhDo, String soDienThoai, String trangThai, String anh) {
-        super(maNV, tenNV, gioiTinh, chucVu, ngaySinh, cccd, ngayVaoLam, trinhDo, soDienThoai, trangThai, anh);
+    public nv_May(int sanLuong, float donGia, double luongCoDinh,
+        double phuCap, String maNV, String tenNV, String gioiTinh,
+        String chucVu, Date ngaySinh, String cccd, Date ngayVaoLam,
+        String trinhDo, String soDienThoai, String trangThai, String anh) {
+        super(maNV, tenNV, gioiTinh, chucVu, ngaySinh, cccd, ngayVaoLam,
+              trinhDo, soDienThoai, trangThai, anh);
         this.sanLuong = sanLuong;
         this.donGia = donGia;
         this.luongCoDinh = luongCoDinh;

@@ -15,8 +15,12 @@ public class nv_VanPhong extends nhan_vien {
     private double phat;
     
     //contructor
-    public nv_VanPhong(double luongCoBan, double thuong, double phat, String maNV, String tenNV, String gioiTinh, String chucVu, Date ngaySinh, String cccd, Date ngayVaoLam, String trinhDo, String soDienThoai, String trangThai, String anh) {
-        super(maNV, tenNV, gioiTinh, chucVu, ngaySinh, cccd, ngayVaoLam, trinhDo, soDienThoai, trangThai, anh);
+    public nv_VanPhong(double luongCoBan, double thuong, double phat,
+            String maNV, String tenNV, String gioiTinh, String chucVu,
+            Date ngaySinh, String cccd, Date ngayVaoLam, String trinhDo,
+            String soDienThoai, String trangThai, String anh) {
+        super(maNV, tenNV, gioiTinh, chucVu, ngaySinh, cccd, ngayVaoLam,
+                trinhDo, soDienThoai, trangThai, anh);
         this.luongCoBan = luongCoBan;
         this.thuong = thuong;
         this.phat = phat;
