@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Hat262006
@@ -74,7 +75,6 @@ public class Cham_Cong extends javax.swing.JFrame {
         anid();
     }
 
-
     //ẩn cột  id  
     private void anid() {
         jTableNs.getColumnModel().getColumn(0).setMinWidth(0);
@@ -133,7 +133,16 @@ public class Cham_Cong extends javax.swing.JFrame {
             float gioLam = Float.parseFloat(gioLam_str);
             float gioTangCa = Float.parseFloat(gioTangCa_str);
             float hsTangCa = Float.parseFloat(hsTangCa_str);
-
+            if (gioLam < 0 || gioTangCa < 0 || hsTangCa <= 1) {
+                JOptionPane.showMessageDialog(this, "Thông tin nhập vào phải lớn hơn 0\n "
+                        + "Hệ số tăng ca lớn hơn 1.");
+                return null;
+            }
+            if (gioLam > 8 || gioTangCa > 4) {
+                JOptionPane.showMessageDialog(this, "Giờ làm không hợp lệ\n"
+                        + "Giờ tăng ca không hợp lệ");
+                return null;
+            }
             // Tạo object ChamCong
             ChamCong cc = new ChamCong("",
                     maNv, "", "", gioLam, gioTangCa, hsTangCa,
@@ -818,7 +827,7 @@ public class Cham_Cong extends javax.swing.JFrame {
         txtTimKiem.setText("");
     }
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-      loadDataToTable();
+        loadDataToTable();
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnThem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThem12ActionPerformed
@@ -916,7 +925,7 @@ public class Cham_Cong extends javax.swing.JFrame {
             // Gọi DAO để cập nhật thông tin nhân viên
             ChamCong_DAO dao = new ChamCong_DAO();
             boolean success = dao.capNhatNhanVien(cc);
-            
+
             if (success) {
                 JOptionPane.showMessageDialog(this, "Cập nhật thành công!");
                 loadDataToTable();

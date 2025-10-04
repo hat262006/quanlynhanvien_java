@@ -3,7 +3,6 @@ package model;
 import java.sql.Date;
 import service.ChamCong;
 import model.nhan_vien;
-
 /**
  * @author Hat262006
  */

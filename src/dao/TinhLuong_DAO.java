@@ -21,7 +21,8 @@ import service.ChamCong;
 public class TinhLuong_DAO {
 
     //Hàm lấy dữ liệu chấm công từ mã nv 
-    public List<ChamCong> getChamCongByNV(String maNV) throws SQLException {
+    public List<ChamCong> getChamCongByNV(String maNV) 
+            throws SQLException {
         List<ChamCong> dsChamCong = new ArrayList<>();
         String sql = "SELECT c.id,c.ma_nhan_vien, n.ho_ten, n.chuc_vu, \n"
                 + " c.gio_lam, c.gio_tang_ca, c.hs_tang_ca, c.ngay, c.trang_thai\n"
@@ -51,7 +52,7 @@ public class TinhLuong_DAO {
         return dsChamCong;
     }
 
-    //============== Tính Lương==============
+    // Tính Lương
     public double tinhLuongTheoChamCong(nhan_vien nv, List<ChamCong> dsChamCong) {
         double tongLuong = 0;
         for (ChamCong cc : dsChamCong) {
@@ -60,7 +61,7 @@ public class TinhLuong_DAO {
         return tongLuong;
     }
 
-    //==============Hàm thêm ==============
+    //Hàm thêm 
     public boolean luuBangLuong(String maNV, String tenNV, String chucVu,
             float tongGioLam, float tongTangCa,
             float hsTangCa, double tongLuong) {
@@ -103,7 +104,8 @@ public class TinhLuong_DAO {
     }
 
     //    Hàm lấy nhân viên ra bảng và sắp xếp 
-    public List<Object[]> getAll(String keyWord, String sapXepTheo, String thuTu, String chucVu) {
+    public List<Object[]> getAll(String keyWord,
+            String sapXepTheo, String thuTu, String chucVu) {
         List<Object[]> list = new ArrayList<>();
         String sql = "SELECT * FROM bangluong";
         // Lọc theo chức vụ
