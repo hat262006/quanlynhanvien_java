@@ -7,7 +7,9 @@ import model.nhan_vien;
  * @author Hat262006
  */
 public class nv_ThoiVu extends nhan_vien {
+    
     private double luongMotGio;
+    
     //Contructor 
     public nv_ThoiVu(double luongMotGio, String maNV, String tenNV,
             String gioiTinh, String chucVu, Date ngaySinh, String cccd,
@@ -17,7 +19,7 @@ public class nv_ThoiVu extends nhan_vien {
                 trinhDo, soDienThoai, trangThai, anh);
         this.luongMotGio = luongMotGio;
     }
-//Set & get 
+    //Set & get 
     public double getLuongMotGio() {
         return luongMotGio;
     }

@@ -330,7 +330,7 @@ public class QL_NS extends javax.swing.JFrame {
         try (FileOutputStream out = new FileOutputStream(new File(filePath))) {
             workbook.write(out);
             workbook.close();
-            JOptionPane.showMessageDialog(null, "Xuất Excel thành công: ");
+            JOptionPane.showMessageDialog(null, "Xuất Excel thành công ");
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Lỗi khi ghi file Excel: ");
         }
