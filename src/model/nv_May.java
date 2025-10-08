@@ -63,7 +63,8 @@ public class nv_May extends nhan_vien {
     @Override
     public double tinhLuong(ChamCong cc) {
         int ngayDilam = 27; // Một công nhân may đi làm số ngày /1 tháng
-        int soGioLam = ngayDilam * 8; // Công nhân đi làm số giờ /1 tháng
+        int gioLam = 8; // Một ngày công nhân may làm 8 
+        int soGioLam = ngayDilam * gioLam; // Công nhân đi làm số giờ /1 tháng
         double luongSanLuong = donGia * sanLuong;
         double luongChinhThuc = luongCoDinh / soGioLam * cc.getGioLam();
         double luongTangCa = luongCoDinh / soGioLam * cc.getGioTangCa() * cc.getHsTangCa();
